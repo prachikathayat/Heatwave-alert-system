@@ -1,10 +1,14 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 import requests
+import os 
+from dotenv import load_dotenv
 
 app = Flask(__name__)
 CORS(app)
 
+load_dotenv()
+API_KEY = os.getenv("API_KEY")
 
 
 def calculate_thermal_stress(temp, humidity):
@@ -16,36 +20,14 @@ def calculate_thermal_stress(temp, humidity):
         return {"level": "MODERATE", "advice": "Take frequent breaks in the shade and stay hydrated."}
     else:
         return {"level": "LOW RISK", "advice": "Normal heat conditions. Enjoy your day safely."}
-from flask import Flask, jsonify, request
-from flask_cors import CORS
-import requests
-
-app = Flask(__name__)
-CORS(app)
-
-from dotenv import load_dotenv
-import os
-
-load_dotenv()
-
-API_KEY = os.getenv("API_KEY")
-
-def calculate_thermal_stress(temp, humidity):
-    if temp >= 40 or (temp >= 35 and humidity > 60):
-        return {"level": "EXTREME HAZARD", "advice": "Extreme risk of heat stroke."}
-    elif temp >= 35 or (temp >= 30 and humidity > 70):
-        return {"level": "HIGH RISK", "advice": "Avoid prolonged outdoor activity."}
-    elif temp >= 30:
-        return {"level": "MODERATE", "advice": "Take frequent breaks in shade."}
-    else:
-        return {"level": "LOW RISK", "advice": "Normal heat conditions."}
-
 
 @app.route('/api/weather', methods=['GET'])
 def get_weather():
     city = request.args.get('city', 'London')
-    url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric"
-    
+    url = (
+         f"http://api.openweathermap.org/data/2.5/weather"
+         f"?q={city}&appid={API_KEY}&units=metric"
+    )    
     try:
         response = requests.get(url)
         data = response.json()
