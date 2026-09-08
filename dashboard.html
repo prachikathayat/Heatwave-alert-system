@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>HeatSync | Dashboard</title>
+
+    <link
+        rel="stylesheet"
+        href="dashboard.css"
+    >
+
+</head>
+
+<body>
+
+
+<div class="app">
+
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+
+        <div class="brand">
+
+            <div class="brand-logo">
+                ☀
+            </div>
+
+            <div>
+                <strong>HeatSync</strong>
+
+                <span>
+                    HEAT SAFETY SYSTEM
+                </span>
+            </div>
+
+        </div>
+
+
+        <p class="menu-heading">
+            MONITOR
+        </p>
+
+
+        <nav>
+
+            <button
+                class="nav-link active"
+                data-section="home"
+            >
+                <span>⌂</span>
+                Home
+            </button>
+
+
+            <button
+                class="nav-link"
+                data-section="weather"
+            >
+                <span>🌡</span>
+                Weather
+            </button>
+
+
+            <button
+                class="nav-link"
+                data-section="thermal"
+            >
+                <span>◉</span>
+                Thermal Stress Index
+            </button>
+
+
+            <button
+                class="nav-link"
+                data-section="risk"
+            >
+                <span>⚠</span>
+                Risk Analysis
+            </button>
+
+
+            <button
+                class="nav-link"
+                data-section="alerts"
+            >
+                <span>🔔</span>
+                Heatwave Alerts
+
+                <b class="alert-count">
+                    !
+                </b>
+
+            </button>
+
+        </nav>
+
+
+        <p class="menu-heading">
+            ACCOUNT
+        </p>
+
+
+        <nav>
+
+            <button
+                class="nav-link"
+                data-section="profile"
+            >
+                <span>♙</span>
+                Profile
+            </button>
+
+
+            <button
+                class="nav-link"
+                data-section="settings"
+            >
+                <span>⚙</span>
+                Settings
+            </button>
+
+        </nav>
+
+
+        <!-- USER -->
+
+        <div class="sidebar-user">
+
+            <div class="user-info">
+
+                <div class="avatar">
+                    <span id="userInitial">H</span>
+                </div>
+
+                <div>
+
+                    <strong id="sidebarName">
+                        HeatSync User
+                    </strong>
+
+                    <small id="sidebarLocation">
+                        Detecting area...
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <button id="logoutBtn">
+                ↪ Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div>
+
+                <p class="page-label">
+                    HEAT MONITORING
+                </p>
+
+                <h1>
+                    Good morning,
+                    <span id="userName">
+                        User
+                    </span>
+                </h1>
+
+                <p id="pageSubtitle">
+                    Here's your thermal picture for today.
+                </p>
+
+            </div>
+
+
+            <div class="top-right">
+
+                <div class="location">
+                    📍
+                    <span id="location">
+                        Detecting area...
+                    </span>
+                </div>
+
+
+                <button class="notification">
+                    🔔
+                    <i></i>
+                </button>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- ==================================================
+             HOME SECTION
+        =================================================== -->
+
+        <section
+            id="home"
+            class="dashboard-section active-section"
+        >
+
+
+            <!-- HTSI -->
+
+            <div class="htsi-card">
+
+
+                <div class="score-area">
+
+                    <div class="score-ring waiting">
+
+                        <div class="score-center">
+
+                            <strong>
+                                --
+                            </strong>
+
+                            <span>
+                                HTSI
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <span class="waiting-pill">
+                        AWAITING DATA
+                    </span>
+
+                </div>
+
+
+                <div class="htsi-content">
+
+                    <p class="section-label">
+                        TODAY'S THERMAL STRESS INDEX
+                    </p>
+
+                    <h2>
+                        Your thermal stress
+                        score is <span>not available yet</span>
+                    </h2>
+
+                    <p>
+                        Your personalized HTSI will appear here
+                        after the weather and vulnerability data
+                        are received from the backend.
+                    </p>
+
+
+                    <button
+                        class="backend-button"
+                        onclick="showBackendMessage()"
+                    >
+                        Check for backend data →
+                    </button>
+
+                </div>
+
+
+                <div class="feels-like">
+
+                    <span>
+                        FEELS LIKE
+                    </span>
+
+                    <strong>
+                        --
+                    </strong>
+
+                    <small>
+                        Awaiting weather
+                    </small>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- WEATHER FACTORS -->
+
+            <div class="stats">
+
+
+                <div class="stat-card">
+
+                    <div class="stat-header">
+
+                        <div class="stat-icon">
+                            🌡
+                        </div>
+
+                        <span class="awaiting">
+                            WAITING
+                        </span>
+
+                    </div>
+
+                    <strong>
+                        --
+                    </strong>
+
+                    <p>
+                        Temperature
+                    </p>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-header">
+
+                        <div class="stat-icon">
+                            💧
+                        </div>
+
+                        <span class="awaiting">
+                            WAITING
+                        </span>
+
+                    </div>
+
+                    <strong>
+                        --
+                    </strong>
+
+                    <p>
+                        Relative Humidity
+                    </p>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-header">
+
+                        <div class="stat-icon">
+                            ☀
+                        </div>
+
+                        <span class="awaiting">
+                            WAITING
+                        </span>
+
+                    </div>
+
+                    <strong>
+                        --
+                    </strong>
+
+                    <p>
+                        UV Index
+                    </p>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-header">
+
+                        <div class="stat-icon">
+                            💨
+                        </div>
+
+                        <span class="awaiting">
+                            WAITING
+                        </span>
+
+                    </div>
+
+                    <strong>
+                        --
+                    </strong>
+
+                    <p>
+                        Wind Speed
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ALERT + PROFILE -->
+
+            <div class="two-column">
+
+
+                <div class="panel">
+
+                    <div class="panel-title">
+
+                        <div>
+
+                            <p>
+                                ⚠ HEATWAVE ALERT
+                            </p>
+
+                            <h3>
+                                Awaiting alert data
+                            </h3>
+
+                        </div>
+
+                        <span class="waiting-status">
+                            BACKEND
+                        </span>
+
+                    </div>
+
+
+                    <p class="panel-description">
+
+                        Heatwave alerts will appear here when
+                        the backend provides location-based
+                        warning information.
+
+                    </p>
+
+
+                    <div class="empty-box">
+                        🔔 No alert data available yet
+                    </div>
+
+                </div>
+
+
+
+                <div class="panel">
+
+                    <div class="panel-title">
+
+                        <div>
+
+                            <p>
+                                PERSONAL RISK
+                            </p>
+
+                            <h3>
+                                Vulnerability Profile
+                            </h3>
+
+                        </div>
+
+                        <span class="waiting-status">
+                            NOT SET
+                        </span>
+
+                    </div>
+
+
+                    <div class="profile-placeholder">
+
+                        <div class="large-user-icon">
+                            🧍
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Select your age group
+                            </strong>
+
+                            <p>
+                                Choose an age group below to
+                                view its vulnerability information.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- AGE FACTOR -->
+
+            <div class="panel age-analysis">
+
+                <div class="panel-title">
+
+                    <div>
+
+                        <p>
+                            AGE-BASED ANALYSIS
+                        </p>
+
+                        <h3>
+                            Select your age group
+                        </h3>
+
+                    </div>
+
+                    <span class="info">
+                        Click a profile
+                    </span>
+
+                </div>
+
+
+                <div class="age-grid">
+
+
+                    <button
+                        class="age-card"
+                        data-age="child"
+                    >
+
+                        <span class="age-emoji">
+                            👶
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Children
+                            </strong>
+
+                            <b>
+                                AGE 0–17
+                            </b>
+
+                            <p>
+                                Select to view vulnerability.
+                            </p>
+
+                        </div>
+
+                    </button>
+
+
+                    <button
+                        class="age-card"
+                        data-age="adult"
+                    >
+
+                        <span class="age-emoji">
+                            🧑
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Adults
+                            </strong>
+
+                            <b>
+                                AGE 18–59
+                            </b>
+
+                            <p>
+                                Select to view vulnerability.
+                            </p>
+
+                        </div>
+
+                    </button>
+
+
+                    <button
+                        class="age-card"
+                        data-age="senior"
+                    >
+
+                        <span class="age-emoji">
+                            👴
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Older Adults
+                            </strong>
+
+                            <b>
+                                AGE 60–74
+                            </b>
+
+                            <p>
+                                Select to view vulnerability.
+                            </p>
+
+                        </div>
+
+                    </button>
+
+
+                    <button
+                        class="age-card"
+                        data-age="elderly"
+                    >
+
+                        <span class="age-emoji">
+                            🧓
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Elderly
+                            </strong>
+
+                            <b>
+                                AGE 75+
+                            </b>
+
+                            <p>
+                                Select to view vulnerability.
+                            </p>
+
+                        </div>
+
+                    </button>
+
+                </div>
+
+
+                <!-- AGE RESPONSE -->
+
+                <div
+                    id="ageResponse"
+                    class="age-response"
+                >
+
+                    <strong>
+                        Select an age group above
+                    </strong>
+
+                    <p>
+                        The personalized risk,
+                        suggestions and precautions will
+                        be supplied by the backend.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- SUGGESTIONS -->
+
+            <div class="two-column">
+
+
+                <div class="panel">
+
+                    <div class="panel-title">
+
+                        <div>
+
+                            <p>
+                                ✦ PERSONALIZED
+                            </p>
+
+                            <h3>
+                                Suggestions
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="empty-content">
+
+                        <div>
+                            ✦
+                        </div>
+
+                        <p>
+                            Personalized suggestions will
+                            appear here after backend data
+                            is connected.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="panel">
+
+                    <div class="panel-title">
+
+                        <div>
+
+                            <p>
+                                🛡 SAFETY
+                            </p>
+
+                            <h3>
+                                Precautions
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="empty-content">
+
+                        <div>
+                            🛡
+                        </div>
+
+                        <p>
+                            Safety precautions will be
+                            generated according to heat
+                            conditions and age vulnerability.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ==================================================
+             WEATHER SECTION
+        =================================================== -->
+
+        <section
+            id="weather"
+            class="dashboard-section"
+        >
+
+            <div class="section-heading">
+
+                <p>
+                    WEATHER
+                </p>
+
+                <h2>
+                    Local Weather
+                </h2>
+
+                <span id="weatherLocation">
+                    Weather for your area will appear here.
+                </span>
+
+            </div>
+
+
+            <div class="large-empty">
+
+                <div>
+                    🌡️
+                </div>
+
+                <h3>
+                    Weather data awaiting backend
+                </h3>
+
+                <p>
+                    Temperature, humidity, wind speed,
+                    UV index and feels-like temperature
+                    will be received from the weather API
+                    through your friend's backend.
+                </p>
+
+                <span>
+                    API CONNECTION: NOT CONNECTED
+                </span>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             THERMAL SECTION
+        =================================================== -->
+
+        <section
+            id="thermal"
+            class="dashboard-section"
+        >
+
+            <div class="section-heading">
+
+                <p>
+                    THERMAL STRESS
+                </p>
+
+                <h2>
+                    Human Thermal Stress Index
+                </h2>
+
+                <span>
+                    HTSI calculation will be supplied by backend.
+                </span>
+
+            </div>
+
+
+            <div class="thermal-empty">
+
+                <div class="thermal-circle">
+                    --
+                </div>
+
+                <h3>
+                    HTSI score unavailable
+                </h3>
+
+                <p>
+                    Once weather and personal vulnerability
+                    data are received, your HTSI score will
+                    be displayed here.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             RISK SECTION
+        =================================================== -->
+
+        <section
+            id="risk"
+            class="dashboard-section"
+        >
+
+            <div class="section-heading">
+
+                <p>
+                    RISK ANALYSIS
+                </p>
+
+                <h2>
+                    Vulnerability Analysis
+                </h2>
+
+                <span>
+                    Select an age profile to explore.
+                </span>
+
+            </div>
+
+
+            <div class="risk-grid">
+
+                <button class="risk-profile" data-age="child">
+                    👶
+                    <strong>Children</strong>
+                    <span>0–17 years</span>
+                </button>
+
+
+                <button class="risk-profile" data-age="adult">
+                    🧑
+                    <strong>Adults</strong>
+                    <span>18–59 years</span>
+                </button>
+
+
+                <button class="risk-profile" data-age="senior">
+                    👴
+                    <strong>Older Adults</strong>
+                    <span>60–74 years</span>
+                </button>
+
+
+                <button class="risk-profile" data-age="elderly">
+                    🧓
+                    <strong>Elderly</strong>
+                    <span>75+ years</span>
+                </button>
+
+            </div>
+
+
+            <div
+                id="riskResponse"
+                class="large-empty"
+            >
+
+                <div>
+                    🧍
+                </div>
+
+                <h3>
+                    Choose an age group
+                </h3>
+
+                <p>
+                    Risk information will be displayed here.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             ALERT SECTION
+        =================================================== -->
+
+        <section
+            id="alerts"
+            class="dashboard-section"
+        >
+
+            <div class="section-heading">
+
+                <p>
+                    ALERT CENTER
+                </p>
+
+                <h2>
+                    Heatwave Alerts
+                </h2>
+
+                <span>
+                    Location-based alerts will come from backend.
+                </span>
+
+            </div>
+
+
+            <div class="alert-empty">
+
+                <div>
+                    🔔
+                </div>
+
+                <h3>
+                    No alert data available
+                </h3>
+
+                <p>
+                    Heatwave warnings for your selected area
+                    will appear here once the backend API is connected.
+                </p>
+
+                <span>
+                    WAITING FOR API
+                </span>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             PROFILE SECTION
+        =================================================== -->
+
+        <section
+            id="profile"
+            class="dashboard-section"
+        >
+
+            <div class="section-heading">
+
+                <p>
+                    ACCOUNT
+                </p>
+
+                <h2>
+                    Your Profile
+                </h2>
+
+                <span>
+                    Your personal information.
+                </span>
+
+            </div>
+
+
+            <div class="profile-card">
+
+                <div class="profile-avatar">
+                    <span id="profileInitial">
+                        H
+                    </span>
+                </div>
+
+                <h3 id="profileName">
+                    HeatSync User
+                </h3>
+
+                <p>
+                    Location:
+                    <span id="profileLocation">
+                        Detecting...
+                    </span>
+                </p>
+
+                <p class="profile-note">
+                    Age and personal health-related factors
+                    can be added later through the backend/profile system.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             SETTINGS
+        =================================================== -->
+
+        <section
+            id="settings"
+            class="dashboard-section"
+        >
+
+            <div class="section-heading">
+
+                <p>
+                    ACCOUNT
+                </p>
+
+                <h2>
+                    Settings
+                </h2>
+
+                <span>
+                    HeatSync application settings.
+                </span>
+
+            </div>
+
+
+            <div class="settings-card">
+
+                <div>
+                    <strong>
+                        Backend Connection
+                    </strong>
+
+                    <span>
+                        Not connected yet
+                    </span>
+                </div>
+
+
+                <div>
+                    <strong>
+                        Weather API
+                    </strong>
+
+                    <span>
+                        Awaiting backend
+                    </span>
+                </div>
+
+
+                <div>
+                    <strong>
+                        HTSI Engine
+                    </strong>
+
+                    <span>
+                        Awaiting backend
+                    </span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+</div>
+
+
+<script src="dashboard.js"></script>
+
+</body>
+
+</html>
